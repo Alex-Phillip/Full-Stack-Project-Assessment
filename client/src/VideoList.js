@@ -4,8 +4,6 @@ export const VideoList = () => {
   return (
     <section className="videoList">
       <VideoCard />
-      <VideoCard />
-      <VideoCard />
     </section>
   )
 }
