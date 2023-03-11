@@ -8,6 +8,10 @@
   text-align: center;
 }
 
+.header {
+  padding: 2rem 0;
+}
+
 .videoList {
 }
 
@@ -17,4 +21,18 @@
   margin: 3rem auto;
   padding: 2rem 2rem;
   width: 50%;
+}
+
+.videoCard iframe {
+  border: solid 0.2rem #000;
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  width: 100%;
+}
+
+.videoCard button {
+  border: solid 0.25rem #000;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.5rem;
 }

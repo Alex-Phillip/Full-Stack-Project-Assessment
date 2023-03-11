@@ -1,7 +1,7 @@
 export const Header = () => {
   return (
-    <header>
-      <h1>Video Recommendation Station</h1>
+    <header className="header">
+      <h1>Video Recommendation App</h1>
     </header>
   )
 }
