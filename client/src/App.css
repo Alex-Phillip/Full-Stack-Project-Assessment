@@ -7,3 +7,14 @@
 .App {
   text-align: center;
 }
+
+.videoList {
+}
+
+.videoCard {
+  border: solid 0.3rem #000;
+  border-radius: 0.5rem;
+  margin: 3rem auto;
+  padding: 2rem 2rem;
+  width: 50%;
+}
