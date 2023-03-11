@@ -1,14 +1,14 @@
 import './App.css'
-import videoData from './exampleresponse.json'
+import { Header } from './Header'
 import { VideoList } from './VideoList'
+import { Footer } from './Footer'
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Video Recommendation</h1>
-      </header>
+      <Header />
       <VideoList />
+      <Footer />
     </div>
   )
 }
