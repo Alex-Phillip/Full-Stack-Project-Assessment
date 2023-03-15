@@ -2,14 +2,16 @@
 import { useState } from 'react'
 import { Button } from './Button'
 
-// const upVoteFunction = () => {}
-const downVoteFunction = () => {}
 const deleteFunction = () => {}
+const downVoteFunction = () => {}
 
 export const VideoCard = ({ vid }) => {
   const [count, setCount] = useState(vid.rating)
   const upVoteFunction = () => {
     setCount(count + 1)
+  }
+  const downVoteFunction = () => {
+    setCount(count - 1)
   }
 
   return (
