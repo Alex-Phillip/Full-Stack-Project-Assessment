@@ -1,22 +1,32 @@
 // import videoData from './exampleresponse.json'
+import { useState } from 'react'
 import { Button } from './Button'
 
+// const upVoteFunction = () => {}
+const downVoteFunction = () => {}
 const deleteFunction = () => {}
 
-export const VideoCard = ({ data }) => {
+export const VideoCard = ({ vid }) => {
+  const [count, setCount] = useState(vid.rating)
+  const upVoteFunction = () => {
+    setCount(count + 1)
+  }
+
   return (
     <article className="videoCard">
-      <p>{data.title}</p>
+      <p>{vid.title}</p>
       <iframe
         //   width="560"
         //   height="315"
-        src={data.url.replace('watch?v=', 'embed/')}
-        title={data.title}
+        src={vid.url.replace('watch?v=', 'embed/')}
+        title={vid.title}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
-      <p>Votes: {data.rating}</p>
+      <p>Votes: {count}</p>
+      <Button onClick={upVoteFunction}>Up Vote</Button>
+      <Button onClick={downVoteFunction}>Down Vote</Button>
       <Button onClick={deleteFunction}>Delete</Button>
     </article>
   )

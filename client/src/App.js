@@ -1,17 +1,16 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { Header } from './Header'
 import { VideoList } from './VideoList'
 import { Footer } from './Footer'
 
 const App = () => {
+  const [videoData, setVideoData] = useState([])
+
   const getVideos = async () => {
-    // fetch('https://localhost:5000')
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data))
     const response = await fetch('http://localhost:5000')
     const data = await response.json()
-    console.log(data)
+    setVideoData(data)
   }
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <VideoList />
+      <VideoList videoData={videoData} />
       <Footer />
     </div>
   )
