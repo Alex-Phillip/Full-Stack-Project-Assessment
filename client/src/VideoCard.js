@@ -1,11 +1,7 @@
-// import videoData from './exampleresponse.json'
 import { useState } from 'react'
 import { Button } from './Button'
 
-const deleteFunction = () => {}
-const downVoteFunction = () => {}
-
-export const VideoCard = ({ vid }) => {
+export const VideoCard = ({ vid, videoData, setVideoData }) => {
   const [count, setCount] = useState(vid.rating)
   const upVoteFunction = () => {
     setCount(count + 1)
@@ -13,9 +9,15 @@ export const VideoCard = ({ vid }) => {
   const downVoteFunction = () => {
     setCount(count - 1)
   }
+  const deleteFunction = (id) => {
+    const filteredVideos = videoData.filter((vid) => {
+      return vid.id !== id
+    })
+    setVideoData(filteredVideos)
+  }
 
   return (
-    <article className="videoCard">
+    <article className="videoCard" id={vid.id}>
       <p>{vid.title}</p>
       <iframe
         //   width="560"
@@ -29,7 +31,7 @@ export const VideoCard = ({ vid }) => {
       <p>Votes: {count}</p>
       <Button onClick={upVoteFunction}>Up Vote</Button>
       <Button onClick={downVoteFunction}>Down Vote</Button>
-      <Button onClick={deleteFunction}>Delete</Button>
+      <Button onClick={() => deleteFunction(vid.id)}>Delete</Button>
     </article>
   )
 }

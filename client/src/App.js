@@ -20,7 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <VideoList videoData={videoData} />
+      <VideoList videoData={videoData} setVideoData={setVideoData} />
       <Footer />
     </div>
   )

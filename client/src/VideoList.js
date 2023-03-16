@@ -1,13 +1,15 @@
 import { VideoCard } from './VideoCard'
-// import videoData from './exampleresponse.json'
 
-export const VideoList = ({ videoData }) => {
-  console.log(videoData)
-
+export const VideoList = ({ videoData, setVideoData }) => {
   return (
     <section className="videoList">
       {videoData.map((vid) => (
-        <VideoCard vid={vid} key={vid.id} />
+        <VideoCard
+          vid={vid}
+          key={vid.id}
+          videoData={videoData}
+          setVideoData={setVideoData}
+        />
       ))}
     </section>
   )
