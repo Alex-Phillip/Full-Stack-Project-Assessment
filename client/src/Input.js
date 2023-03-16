@@ -1,8 +1,8 @@
-export const Input = ({ placeholder, onChange }) => {
+export const Input = ({ placeholder, onChange, name }) => {
   return (
     <>
-      <label htmlFor="input"></label>
-      <input placeholder={placeholder} name="input" onChange={onChange} />
+      <label htmlFor={name}></label>
+      <input placeholder={placeholder} name={name} onChange={onChange} />
     </>
   )
 }

@@ -28,14 +28,18 @@ export const AddVideo = ({ videoData, setVideoData }) => {
       url: vidUrl,
       rating: 6,
     }
-    videoData.push(newVid)
+    videoData.unshift(newVid)
     setVideoData([...videoData])
   }
 
   return (
     <>
       <Input onChange={handleTitleFunction} placeholder="Enter title..." />
-      <Input onChange={handleURLFunction} placeholder="Enter URL..." />
+      <Input
+        onChange={handleURLFunction}
+        placeholder="Enter URL..."
+        name="input"
+      />
       <Button onClick={addVideoFunction}>Add Video</Button>
     </>
   )
