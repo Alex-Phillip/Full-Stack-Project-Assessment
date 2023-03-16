@@ -35,6 +35,9 @@ export const AddVideo = ({ videoData, setVideoData }) => {
     } else {
       videoData.unshift(newVid)
       setVideoData([...videoData])
+      const uploadDateTime =
+        newVid.title + ' added at ' + new Date().toLocaleString()
+      console.log(uploadDateTime)
     }
   }
 

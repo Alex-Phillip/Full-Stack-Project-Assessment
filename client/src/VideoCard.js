@@ -16,6 +16,11 @@ export const VideoCard = ({ vid, videoData, setVideoData }) => {
   }
   const deleteFunction = (id) => {
     const filteredVideos = videoData.filter((vid) => {
+      if (vid.id === id) {
+        const deletedDateTime =
+          vid.title + ' deleted at ' + new Date().toLocaleString()
+        console.log(deletedDateTime)
+      }
       return vid.id !== id
     })
     setVideoData(filteredVideos)
