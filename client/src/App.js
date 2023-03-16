@@ -3,6 +3,7 @@ import './App.css'
 import { Header } from './Header'
 import { VideoList } from './VideoList'
 import { Footer } from './Footer'
+import { AddVideo } from './AddVideo'
 
 const App = () => {
   const [videoData, setVideoData] = useState([])
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
+      <AddVideo videoData={videoData} setVideoData={setVideoData} />
       <VideoList videoData={videoData} setVideoData={setVideoData} />
       <Footer />
     </div>

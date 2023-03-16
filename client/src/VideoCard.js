@@ -1,7 +1,12 @@
 import { useState } from 'react'
+import { AddVideo } from './AddVideo'
 import { Button } from './Button'
 
 export const VideoCard = ({ vid, videoData, setVideoData }) => {
+  const vidUrl = vid.url.includes('watch?v=')
+    ? vid.url.replace('watch?v=', 'embed/')
+    : vid.url
+
   const [count, setCount] = useState(vid.rating)
   const upVoteFunction = () => {
     setCount(count + 1)
@@ -22,7 +27,7 @@ export const VideoCard = ({ vid, videoData, setVideoData }) => {
       <iframe
         //   width="560"
         //   height="315"
-        src={vid.url.replace('watch?v=', 'embed/')}
+        src={vidUrl}
         title={vid.title}
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
