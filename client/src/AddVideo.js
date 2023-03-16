@@ -16,8 +16,6 @@ export const AddVideo = ({ videoData, setVideoData }) => {
     setUrl(newVidUrl)
   }
   const addVideoFunction = () => {
-    console.log(url)
-
     const vidUrl = url.includes('watch?v=')
       ? url.replace('watch?v=', 'embed/')
       : url
@@ -26,10 +24,18 @@ export const AddVideo = ({ videoData, setVideoData }) => {
       id: uuidv4,
       title: title,
       url: vidUrl,
-      rating: 6,
+      rating: 3216,
     }
-    videoData.unshift(newVid)
-    setVideoData([...videoData])
+
+    if (
+      newVid.title.length === 0 ||
+      newVid.url.indexOf('https://www.youtube.com/') === -1
+    ) {
+      console.log({ Error: 'Please enter a title and valid URL' })
+    } else {
+      videoData.unshift(newVid)
+      setVideoData([...videoData])
+    }
   }
 
   return (
