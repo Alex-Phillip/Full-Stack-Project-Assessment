@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { AddVideo } from './AddVideo'
 import { Button } from './Button'
 
 export const VideoCard = ({ vid, videoData, setVideoData }) => {

@@ -12,12 +12,19 @@
   padding: 2rem 0;
 }
 
+.videoList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  margin: 0 5rem;
+  gap: 5rem;
+}
+
 .videoCard {
   border: solid 0.3rem #000;
   border-radius: 0.5rem;
   margin: 3rem auto;
   padding: 2rem 2rem;
-  width: 50%;
+  width: 100%;
 }
 
 .videoCard iframe {
@@ -34,7 +41,7 @@
   padding: 0.2rem 0.5rem;
 }
 
-@media only screen and (min-width: 1143px) {
+/* @media only screen and (min-width: 1143px) {
   .videoList {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -45,4 +52,4 @@
   .videoCard {
     width: 100%;
   }
-}
+} */
