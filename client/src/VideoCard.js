@@ -1,7 +1,12 @@
 import { useState } from 'react'
 import { Button } from './Button'
 
-export const VideoCard = ({ vid, videoData, setVideoData }) => {
+export const VideoCard = ({
+  vid,
+  videoData,
+  setVideoData,
+  largePlayerFunction,
+}) => {
   const vidUrl = vid.url.includes('watch?v=')
     ? vid.url.replace('watch?v=', 'embed/')
     : vid.url
@@ -26,7 +31,11 @@ export const VideoCard = ({ vid, videoData, setVideoData }) => {
   }
 
   return (
-    <article className="videoCard" id={vid.id}>
+    <article
+      className="videoCard"
+      id={vid.id}
+      onClick={() => largePlayerFunction(vid.id)}
+    >
       <p>{vid.title}</p>
       <iframe
         //   width="560"
