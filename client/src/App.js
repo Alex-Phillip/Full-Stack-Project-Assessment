@@ -5,8 +5,6 @@ import { VideoList } from './VideoList'
 import { VideoCard } from './VideoCard'
 import { Footer } from './Footer'
 import { AddVideo } from './AddVideo'
-import SplitPane from 'react-split-pane'
-import { IFrame } from './IFrame'
 
 const App = () => {
   const [videoData, setVideoData] = useState([])
@@ -34,19 +32,11 @@ const App = () => {
     <div className="App">
       <Header />
       <AddVideo videoData={videoData} setVideoData={setVideoData} />
-      <SplitPane
-        split="vertical"
-        minSize={100}
-        maxSize={-100}
-        defaultSize={'50%'}
-      >
-        <VideoList
-          videoData={videoData}
-          setVideoData={setVideoData}
-          largePlayerFunction={largePlayerFunction}
-        />
-        <IFrame selectedVideoUrl={selectedVideoUrl} title={'title'} />
-      </SplitPane>
+      <VideoList
+        videoData={videoData}
+        setVideoData={setVideoData}
+        largePlayerFunction={largePlayerFunction}
+      />
       <Footer />
     </div>
   )
