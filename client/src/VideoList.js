@@ -1,6 +1,6 @@
 import { VideoCard } from './VideoCard'
 
-export const VideoList = ({ videoData, setVideoData }) => {
+export const VideoList = ({ videoData, setVideoData, largePlayerFunction }) => {
   return (
     <section className="videoList">
       {videoData
@@ -11,6 +11,7 @@ export const VideoList = ({ videoData, setVideoData }) => {
             key={vid.id}
             videoData={videoData}
             setVideoData={setVideoData}
+            largePlayerFunction={largePlayerFunction}
           />
         ))}
     </section>
