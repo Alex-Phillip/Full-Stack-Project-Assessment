@@ -72,13 +72,10 @@ app.get('/', (req, res) => {
 })
 
 app.post('/add', (req, res) => {
-  console.log('hello world')
-  res.json({
-    id: 435535,
-    title: 'Man City vs RB Leipzig (7-0)',
-    url: 'https://www.youtube.com/watch?v=R3_0kiIBp9c',
-    rating: 5473,
-  })
+  console.log(req.body)
+  const newVideo = req.body
+  videoData.unshift(newVideo)
+  res.send(videoData)
 })
 
 // app.delete('/delete/:id', (req, res) => {

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button } from './Button'
 import { Input } from './Input'
 import { v4 as uuidv4 } from 'uuid'
+import axios from 'axios'
 
 export const AddVideo = ({ videoData, setVideoData }) => {
   const [title, setTitle] = useState('')
@@ -15,13 +16,13 @@ export const AddVideo = ({ videoData, setVideoData }) => {
     const newVidUrl = e.target.value
     setUrl(newVidUrl)
   }
-  const addVideoFunction = () => {
+  const addVideoFunction = async () => {
     const vidUrl = url.includes('watch?v=')
       ? url.replace('watch?v=', 'embed/')
       : url
 
     const newVid = {
-      id: uuidv4,
+      id: uuidv4(),
       title: title,
       url: vidUrl,
       rating: 3216,
@@ -33,8 +34,8 @@ export const AddVideo = ({ videoData, setVideoData }) => {
     ) {
       console.log({ Error: 'Please enter a title and valid URL' })
     } else {
-      videoData.unshift(newVid)
-      setVideoData([...videoData])
+      const newVideoData = await axios.post('http://localhost:5000/add', newVid)
+      setVideoData(newVideoData.data)
       const uploadDateTime =
         newVid.title + ' added at ' + new Date().toLocaleString()
       console.log(uploadDateTime)
@@ -42,7 +43,7 @@ export const AddVideo = ({ videoData, setVideoData }) => {
   }
 
   return (
-    <>
+    <div className="addVideo">
       <Input onChange={handleTitleFunction} placeholder="Enter title..." />
       <Input
         onChange={handleURLFunction}
@@ -50,6 +51,6 @@ export const AddVideo = ({ videoData, setVideoData }) => {
         name="input"
       />
       <Button onClick={addVideoFunction}>Add Video</Button>
-    </>
+    </div>
   )
 }

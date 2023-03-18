@@ -19,24 +19,11 @@ const App = () => {
     getVideos()
   }, [])
 
-  const [selectedVideoUrl, setSelectedVideoUrl] = useState('')
-
-  const largePlayerFunction = (id) => {
-    const selectedVideo = videoData.filter((vid) => {
-      return vid.id === id
-    })
-    setSelectedVideoUrl(selectedVideo.map((vid) => vid.url).flat())
-  }
-
   return (
     <div className="App">
       <Header />
       <AddVideo videoData={videoData} setVideoData={setVideoData} />
-      <VideoList
-        videoData={videoData}
-        setVideoData={setVideoData}
-        largePlayerFunction={largePlayerFunction}
-      />
+      <VideoList videoData={videoData} setVideoData={setVideoData} />
       <Footer />
     </div>
   )

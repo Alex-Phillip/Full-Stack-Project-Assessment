@@ -12,6 +12,11 @@
   padding: 2rem 0;
 }
 
+.addVideo input,
+button {
+  margin: 1rem 0.5rem;
+}
+
 .videoList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
@@ -37,19 +42,6 @@
 .videoCard button {
   border: solid 0.25rem #000;
   border-radius: 0.5rem;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0.5rem;
   padding: 0.2rem 0.5rem;
 }
-
-/* @media only screen and (min-width: 1143px) {
-  .videoList {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5rem;
-    margin: 0 5rem;
-  }
-
-  .videoCard {
-    width: 100%;
-  }
-} */
